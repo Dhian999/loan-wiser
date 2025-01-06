@@ -1,0 +1,33 @@
+
+.main-layout {
+  min-height: 100vh;
+  background-color: #ffffff;
+  padding: 20px;
+}
+.headers {
+  background-color:#CD5C5C!important;
+  height: 7rem;
+}
+
+.sub-layout{
+  height: 70vh !important;
+}
+
+.sider {
+  background-color: #FAEBD7 !important;
+}
+
+.content {
+  padding: 20px;
+  background: #FFF0F5 !important;
+}
+
+.footer {
+  background-color:#48D1CC;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
