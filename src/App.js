@@ -10,14 +10,33 @@ const { Header, Sider, Content, Footer } = Layout;
 
 const App = () => {
   const [applications, setApplications] = useState([
-    { id: 1, name: "Application_1", files: [] },
+    // { id: 1, name: "Application_1", files: [] },
   ]);
   const [activeAppId, setActiveAppId] = useState(1);
   const [activeFileIndex, setActiveFileIndex] = useState(0);
 
+  // const addApplication = () => {
+  //   const newAppId = applications.length + 1;
+  //   const newApp = { id: newAppId, name: `Application_${newAppId}`, files: [] };
+  //   setApplications([...applications, newApp]);
+  //   setActiveAppId(newAppId);
+  //   setActiveFileIndex(0);
+  // };
+
   const addApplication = () => {
-    const newAppId = applications.length + 1;
-    const newApp = { id: newAppId, name: `Application_${newAppId}`, files: [] };
+    const appName = prompt("Enter the name for the new application:");
+    if (!appName) {
+      alert("Application name cannot be empty.");
+      return;
+    }
+    if (applications.some((app) => app.name === appName)) {
+      alert("An application with this name already exists.");
+      return;
+    }
+    const newAppId = applications.length
+      ? Math.max(...applications.map((app) => app.id)) + 1
+      : 1;
+    const newApp = { id: newAppId, name: appName, files: [] };
     setApplications([...applications, newApp]);
     setActiveAppId(newAppId);
     setActiveFileIndex(0);
